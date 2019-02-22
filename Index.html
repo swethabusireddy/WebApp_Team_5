@@ -1,11 +1,103 @@
-﻿<!DOCTYPE html>
+﻿
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Bootstrap Example</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./Bootstrap Example1_files/bootstrap.min.css">
+    <script src="./Scripts/jquery.min.js.download"></script>
+    <script src="./Contents/bootstrap.min.js.download"></script>
+
+    <script type="text/javascript">
+    function display_chosen_option() {
+      // hole is here
+    }
+    </script>
+    <style type="text/css">
+        @font-face {
+            font-weight: 400;
+            font-style: normal;
+            font-family: 'Inter-Loom';
+            src: url('https://cdn.useloom.com/assets/fonts/inter/Inter-UI-Regular.woff2') format('woff2');
+        }
+
+        @font-face {
+            font-weight: 400;
+            font-style: italic;
+            font-family: 'Inter-Loom';
+            src: url('https://cdn.useloom.com/assets/fonts/inter/Inter-UI-Italic.woff2') format('woff2');
+        }
+
+        @font-face {
+            font-weight: 500;
+            font-style: normal;
+            font-family: 'Inter-Loom';
+            src: url('https://cdn.useloom.com/assets/fonts/inter/Inter-UI-Medium.woff2') format('woff2');
+        }
+
+        @font-face {
+            font-weight: 500;
+            font-style: italic;
+            font-family: 'Inter-Loom';
+            src: url('https://cdn.useloom.com/assets/fonts/inter/Inter-UI-MediumItalic.woff2') format('woff2');
+        }
+
+        @font-face {
+            font-weight: 700;
+            font-style: normal;
+            font-family: 'Inter-Loom';
+            src: url('https://cdn.useloom.com/assets/fonts/inter/Inter-UI-Bold.woff2') format('woff2');
+        }
+
+        @font-face {
+            font-weight: 700;
+            font-style: italic;
+            font-family: 'Inter-Loom';
+            src: url('https://cdn.useloom.com/assets/fonts/inter/Inter-UI-BoldItalic.woff2') format('woff2');
+        }
+
+        @font-face {
+            font-weight: 900;
+            font-style: normal;
+            font-family: 'Inter-Loom';
+            src: url('https://cdn.useloom.com/assets/fonts/inter/Inter-UI-Black.woff2') format('woff2');
+        }
+
+        @font-face {
+            font-weight: 900;
+            font-style: italic;
+            font-family: 'Inter-Loom';
+            src: url('https://cdn.useloom.com/assets/fonts/inter/Inter-UI-BlackItalic.woff2') format('woff2');
+        }
+    </style>
 </head>
 <body>
 
+    <div class="container">
+        <h2>Form control: select</h2>
+
+        <div class="form-group">
+            <label for="mySelect">Select Model Logic:</label>
+            <select class="form-control" id="mySelect">
+                <option value="1">Random Guess</option>
+                <option value="2">Threshold Based Method</option>
+                <option value="3">Decision Tree</option>
+                <option value="4">Neural Network</option>
+            </select>
+
+            <!-- write a function to display chosen option with a pop up window. -->
+            <button type="button" onclick="display_chosen_option()">Display index</button>
+
+            <button type="button" onclick="document.getElementById(&#39;mySelect&#39;).selectedIndex = &#39;-1&#39;">Deselect all options.</button>
+        </div>
+
+    </div>
+
+
+
 </body>
+<loom-container id="lo-engage-ext-container"><loom-shadow classname="resolved"></loom-shadow></loom-container>
 </html>
