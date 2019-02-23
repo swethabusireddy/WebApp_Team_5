@@ -52,12 +52,18 @@
             }
         }
     </style>
+   
 </head>
 <body>
+    <h2 style="text-align: center;">
+        Classmate Data Table
+    </h2>
 
     <div class="container">
+        <div class="text-right">
+            <button id="myBtn" class="btn btn-primary">Insert a Row</button>
+        </div>
         <table class="table table-bordered" id="saving_table">
-            <caption>Classmate Data</caption>
             <thead>
                 <tr>
                     <th>Name</th>
@@ -79,11 +85,24 @@
 
             </tfoot>
         </table>
+        <div class="text-right">
 
+            <button class="btn btn-primary" onclick="delete_row()">Delete the second Row</button>
+            <button class="btn btn-primary" onclick="delete_last_row()">Delete the last Row</button>
+        </div>
+        <div class="form-group">
+            <label for="mySelect">Select Model Logic:</label>
+            <select class="form-control" id="mySelect">
+                <option value="1">Random Guess</option>
+                <option value="2">Threshold Based Method</option>
+            </select>
 
-        <button id="myBtn" class="btn btn-primary">Insert a Row</button>
-        <button class="btn btn-primary" onclick="delete_row()">Delete the second Row</button>
-        <button class="btn btn-primary" onclick="delete_last_row()">Delete the last Row</button>
+            <!-- write a function to display chosen option with a pop up window. -->
+            <button class="btn btn-primary" onclick="display_chosen_option()">Display index</button>
+
+            <button class="btn btn-primary" onclick="document.getElementById(&#39;mySelect&#39;).selectedIndex = &#39;-1&#39;">Deselect all options.</button>
+        </div>
+
     </div>
     <!-- The Modal -->
     <div id="myModal" class="modal">
@@ -135,31 +154,31 @@
     </div>
 
     <script>
-// Get the modal
-var modal = document.getElementById('myModal');
+        // Get the modal
+        var modal = document.getElementById('myModal');
 
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks the button, open the modal
-btn.onclick = function() {
-  modal.style.display = "block";
-}
+        // When the user clicks the button, open the modal
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
     </script>
 </body>
 <loom-container id="lo-engage-ext-container"><loom-shadow classname="resolved"></loom-shadow></loom-container>
