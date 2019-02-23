@@ -1,11 +1,166 @@
 ﻿<!DOCTYPE html>
 
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Bootstrap Example</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./Contents/bootstrap.min.css">
+    <script src="./Scripts/jquery.min.js.download"></script>
+    <script src="./Scripts/bootstrap.min.js.download"></script>
+    <script src="./Scripts/classmate.js"></script>
+
+
+    <style type="text/css">
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 100px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+            .close:hover,
+            .close:focus {
+                color: #000;
+                text-decoration: none;
+                cursor: pointer;
+            }
+        }
+    </style>
 </head>
 <body>
 
+    <div class="container">
+        <table class="table table-bordered" id="saving_table">
+            <caption>Classmate Data</caption>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Garlic</th>
+                    <th>Shadow</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Swetha</td><td>Female</td><td>Y</td><td>N</td></td></tr>
+                <tr><td>Akhila</td><td>Female</td><td>N</td><td>N</td></td></tr>
+                <tr>
+                <tr><td>Rakesh</td><td>Male</td><td>Y</td><td>N</td></td></tr>
+                <tr><td>Yash</td><td>Male</td><td>N</td><td>N</td></td></tr>
+                <tr>
+
+            </tbody>
+            <tfoot>
+
+            </tfoot>
+        </table>
+
+
+        <button id="myBtn" class="btn btn-primary">Insert a Row</button>
+        <button class="btn btn-primary" onclick="delete_row()">Delete the second Row</button>
+        <button class="btn btn-primary" onclick="delete_last_row()">Delete the last Row</button>
+    </div>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+
+            <label for="first_name">Frist Name</label>
+            <!-- possible types:  text, password, datetime, datetime-local, date, month, time, week, number, email, url, search, tel, and color. -->
+            <div>
+                <input type="text" class="form-control" id="first_name" placeholder="Frist Name">
+
+
+                <!-- The .form-group class is the easiest way to add some structure to forms. It provides a flexible class that encourages proper grouping of labels, controls, optional help text, and form validation messaging. -->
+
+                <label for="middle_name">Middle Name</label>
+                <input type="text" class="form-control" id="middle_name" placeholder="Middle Name">
+
+
+                <label for="last_name">Last Name</label>
+                <input type="text" class="form-control" id="last_name" placeholder="Last Name">
+            </div>
+            <div class="radio">
+                <label><input type="radio" name="optradio" id="male_radio" checked="">Male</label>
+            </div>
+            <div class="radio">
+                <label><input type="radio" name="optradio" id="female_radio">Female</label>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" id="galic_checkbox">Garlic</label>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" id="shadow_checkbox">Shadow</label>
+            </div>
+            <div>
+                <label for="comment">Comment:</label>
+                <textarea class="form-control" rows="5" id="comment"></textarea>
+            </div>
+            <div>
+                <!-- How to display all user input information as a paragraph? Finish the output_user_info function -->
+                <button class="btn btn-primary" onclick="output_user_info()">Submit</button>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+    </script>
 </body>
+<loom-container id="lo-engage-ext-container"><loom-shadow classname="resolved"></loom-shadow></loom-container>
 </html>
