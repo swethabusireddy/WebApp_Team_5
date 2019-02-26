@@ -10,7 +10,13 @@
     <script src="./Scripts/jquery.min.js.download"></script>
     <script src="./Scripts/bootstrap.min.js.download"></script>
     <script src="./Scripts/classmate.js"></script>
+    <script src="./Scripts/loader.js.download"></script>
+    <script type="text/javascript">
+    google.charts.load('current', {'packages':['bar', 'corechart', 'table']});
 
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.charts.setOnLoadCallback(drawChart);
+    </script>
 
     <style type="text/css">
         .modal {
@@ -69,15 +75,16 @@
                     <th>Name</th>
                     <th>Gender</th>
                     <th>Garlic</th>
+                    <th>Complexion</th>
                     <th>Shadow</th>
                 </tr>
             </thead>
             <tbody>
-                <tr><td>Swetha</td><td>Female</td><td>Y</td><td>N</td></td></tr>
-                <tr><td>Akhila</td><td>Female</td><td>N</td><td>N</td></td></tr>
+                <tr id="student_1"><td>Swetha</td><td>Female</td><td>Y</td><td>N</td></td></tr>
+                <tr id="student_2"><td>Akhila</td><td>Female</td><td>N</td><td>N</td></td></tr>
                 <tr>
-                <tr><td>Rakesh</td><td>Male</td><td>Y</td><td>N</td></td></tr>
-                <tr><td>Yash</td><td>Male</td><td>N</td><td>N</td></td></tr>
+                <tr id="student_3"><td>Rakesh</td><td>Male</td><td>Y</td><td>N</td></td></tr>
+                <tr id="student_4"><td>Yash</td><td>Male</td><td>N</td><td>N</td></td></tr>
                 <tr>
 
             </tbody>
@@ -98,12 +105,16 @@
             </select>
 
             <!-- write a function to display chosen option with a pop up window. -->
-            <button class="btn btn-primary" onclick="display_chosen_option()">Display index</button>
+            <button class="btn btn-primary" onclick="display_chosen_option()">Display index
+            </button>
 
             <button class="btn btn-primary" onclick="document.getElementById(&#39;mySelect&#39;).selectedIndex = &#39;-1&#39;">Deselect all options.</button>
         </div>
+            <label style="display: none" id="display_option"></label>
+        </div>
 
-    </div>
+        <div style="display: none" id="chart_div"><div style="position: relative;"><div dir="ltr" style="position: relative; width: 400px; height: 300px;"><div aria-label="A chart." style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%;"><svg width="400" height="300" aria-label="A chart." style="overflow: hidden;"><defs id="_ABSTRACT_RENDERER_ID_0"></defs><rect x="0" y="0" width="400" height="300" stroke="none" stroke-width="0" fill="#ffffff"></rect><g><text text-anchor="start" x="77" y="38.35" font-family="Arial" font-size="11" font-weight="bold" stroke="none" stroke-width="0" fill="#000000">How many vampires in the class?</text><rect x="77" y="29" width="247" height="11" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect></g><g><rect x="248" y="58" width="76" height="29" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g column-id="Human"><rect x="248" y="58" width="76" height="11" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><text text-anchor="start" x="263" y="67.35" font-family="Arial" font-size="11" stroke="none" stroke-width="0" fill="#222222">Human</text></g><circle cx="253.5" cy="63.5" r="5.5" stroke="none" stroke-width="0" fill="#3366cc"></circle></g><g column-id="Vampire"><rect x="248" y="76" width="76" height="11" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><text text-anchor="start" x="263" y="85.35" font-family="Arial" font-size="11" stroke="none" stroke-width="0" fill="#222222">Vampire</text></g><circle cx="253.5" cy="81.5" r="5.5" stroke="none" stroke-width="0" fill="#dc3912"></circle></g></g><g><path d="M154,151L154,75A76,76,0,0,1,198.67167917422796,212.485291572496L154,151A0,0,0,0,0,154,151" stroke="#ffffff" stroke-width="1" fill="#3366cc"></path><text text-anchor="start" x="193.22812232406767" y="138.52989375211465" font-family="Arial" font-size="11" stroke="none" stroke-width="0" fill="#ffffff">40%</text></g><g><path d="M154,151L198.67167917422796,212.485291572496A76,76,0,1,1,154,75L154,151A0,0,0,1,0,154,151" stroke="#ffffff" stroke-width="1" fill="#dc3912"></path><text text-anchor="start" x="92.77187767593232" y="171.17010624788534" font-family="Arial" font-size="11" stroke="none" stroke-width="0" fill="#ffffff">60%</text></g><g></g></svg><div aria-label="A tabular representation of the data in the chart." style="position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden;"><table><thead><tr><th>Element</th><th>Count</th></tr></thead><tbody><tr><td>Human</td><td>2</td></tr><tr><td>Vampire</td><td>3</td></tr></tbody></table></div></div></div><div aria-hidden="true" style="display: none; position: absolute; top: 310px; left: 410px; white-space: nowrap; font-family: Arial; font-size: 11px;">Vampire</div><div></div></div></div>
+
     <!-- The Modal -->
     <div id="myModal" class="modal">
 
@@ -138,11 +149,14 @@
                 <label><input type="checkbox" id="galic_checkbox">Garlic</label>
             </div>
             <div class="checkbox">
+                <label><input type="checkbox" id="complexionPale_checkbox">Complexion</label>
+            </div>
+            <div class="checkbox">
                 <label><input type="checkbox" id="shadow_checkbox">Shadow</label>
             </div>
             <div>
                 <label for="comment">Comment:</label>
-                <textarea class="form-control" rows="5" id="comment"></textarea>
+                <textarea class="form-control" rows="6" id="comment"></textarea>
             </div>
             <div>
                 <!-- How to display all user input information as a paragraph? Finish the output_user_info function -->
