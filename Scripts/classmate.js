@@ -1,8 +1,6 @@
-
 var user_name_str;
 var gender_str;
 var galic_str;
-var complexion_str;
 var shadow_str;
 var comment_str;
 var modal = document.getElementById('AddClasmate');
@@ -82,7 +80,7 @@ function getRandomInt(min, max) {
     min = Math.ceil(min);
     // round down
     max = Math.floor(max);
-    // Math.random() random number in the range 0–1 
+    // Math.random() random number in the range 0–1
     // inclusive of 0, but not 1
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -113,7 +111,7 @@ function drawChart() {
       // classmate_data_processing(classmate_data, data);
       classmate_data_processing(data);
 
-  
+
       // Set chart options
       var options = {'title':'How many vampires in the class?',
                      'width':400,
@@ -171,7 +169,7 @@ function classmate_data_processing(result_data) {
 
     result_data.addRows([
         ['Human', num_human],
-        ['Vampire', num_vampire]    
+        ['Vampire', num_vampire]
         ]);
 }
 
