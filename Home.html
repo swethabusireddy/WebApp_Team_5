@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en">
 <head>
@@ -69,15 +69,16 @@
                     <th>Name</th>
                     <th>Gender</th>
                     <th>Garlic</th>
+                    <th>Complexion</th>
                     <th>Shadow</th>
                 </tr>
             </thead>
             <tbody>
-                <tr><td>Swetha</td><td>Female</td><td>Y</td><td>N</td></td></tr>
-                <tr><td>Akhila</td><td>Female</td><td>N</td><td>N</td></td></tr>
+                <tr id="student_1"><td>Swetha</td><td>Female</td><td>Y</td><td>N</td></td><td>Y</td></tr>
+                <tr id="student_2"><td>Akhila</td><td>Female</td><td>N</td><td>N</td></td><td>Y</td></tr>
                 <tr>
-                <tr><td>Rakesh</td><td>Male</td><td>Y</td><td>N</td></td></tr>
-                <tr><td>Yash</td><td>Male</td><td>N</td><td>N</td></td></tr>
+                <tr id="student_3"><td>Rakesh</td><td>Male</td><td>Y</td><td>N</td></td><td>N</td></tr>
+                <tr id="student_4"><td>Yash</td><td>Male</td><td>N</td><td>N</td></td><td>N</td></tr>
                 <tr>
 
             </tbody>
@@ -102,7 +103,7 @@
 
             <button class="btn btn-primary" onclick="document.getElementById(&#39;mySelect&#39;).selectedIndex = &#39;-1&#39;">Deselect all options.</button>
         </div>
-
+            <label style="display: none" id="display_option"></label>
     </div>
     <!-- The Modal -->
     <div id="myModal" class="modal">
@@ -138,11 +139,14 @@
                 <label><input type="checkbox" id="galic_checkbox">Garlic</label>
             </div>
             <div class="checkbox">
+                <label><input type="checkbox" id="complexion_checkbox">Complexion</label>
+            </div>
+            <div class="checkbox">
                 <label><input type="checkbox" id="shadow_checkbox">Shadow</label>
             </div>
             <div>
                 <label for="comment">Comment:</label>
-                <textarea class="form-control" rows="5" id="comment"></textarea>
+                <textarea class="form-control" rows="6" id="comment"></textarea>
             </div>
             <div>
                 <!-- How to display all user input information as a paragraph? Finish the output_user_info function -->
