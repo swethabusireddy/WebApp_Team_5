@@ -1,7 +1,7 @@
-
 var user_name_str;
 var gender_str;
 var galic_str;
+var complexion_str;
 var shadow_str;
 var comment_str;
 var modal = document.getElementById('AddClasmate');
@@ -22,6 +22,14 @@ function output_user_info() {
     }
     else {
         galic_str = "N";
+    }
+
+    var complexion_str;
+    if (document.getElementById("complexion_checkbox").checked) {
+        complexion_str = "Y";
+    }
+    else {
+        complexion_str = "N";
     }
 
     var shadow_str;
@@ -45,12 +53,14 @@ function output_user_info() {
     var cell2 = row.insertCell(1);
     var cell3 = row.insertCell(2);
     var cell4 = row.insertCell(3);
+    var cell5 = row.insertCell(4);
 
     // Add some text to the new cells:
     cell1.innerHTML = user_name_str;
     cell2.innerHTML = gender_str;
     cell3.innerHTML = galic_str;
-    cell4.innerHTML = shadow_str;
+    cell4.innerHTML = complexion_str;
+    cell5.innerHTML = shadow_str;
     modal.style.display = "none";
 
 }
@@ -64,6 +74,29 @@ function delete_last_row() {
     var row_count = table.rows.length;
 
     table.deleteRow(row_count - 1);
+}
+
+function getRandomInt(min, max) {
+    // round up
+    min = Math.ceil(min);
+    // round down
+    max = Math.floor(max);
+    // Math.random() random number in the range 0–1 
+    // inclusive of 0, but not 1
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function display_chosen_option() {
+    var e = document.getElementById ("mySelect");
+    var x = e.options [e.selectedIndex] .text;
+    if (x == "Random Guess")
+    {
+        var student_id = getRandomInt(1, 4);
+    // Create student id string based on 'Model' component
+    var student_id_str = document.getElementById("student_"+student_id).getElementsByTagName("td")[0].innerHTML;
+    document.getElementById("display_option").style.display = "inline"
+    document.getElementById("display_option").innerHTML = student_id_str + " is a vampire";
+    }
 }
 
 
